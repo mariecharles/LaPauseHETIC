@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>LaPauseHETIC</title>
+	<style>
+		p {
+			color: red;
+			font-size: 2rem;
+			text-align: center;
+		}
+
+		#showIfBreak {
+			color: pink;
+			text-align: center;
+			font-size: 4rem;
+		}
+
+		#hour {
+			font-size: 4rem;
+			color: blue;
+			text-align: center;
+			margin-top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p></p>
+		<div id="hour"></div>
+		<div id="showIfBreak"></div>
+	</div>
+</body>
+
+<script>
+
+
+	var breakTime = '10 h 30';
+
+	var rule = document.querySelector('p');
+
+	rule.innerHTML = 'La pause est à' + breakTime;
+
+
+
+	var currentHour = new Date();
+
+	var hour = currentHour.getHours();
+	var min = currentHour.getMinutes()
+	var current = hour + ' h ' + min;
+
+	var hourContainer = document.querySelector('#hour');
+
+
+	hourContainer.innerHTML = 'Il est exactement ' + current;
+
+	var showIfBreak = document.querySelector('#showIfBreak');
+
+	setInterval(function() {
+   		checkIfBreak();
+	}, 500000);
+
+
+	function checkIfBreak() {
+		if (current === breakTime) {
+			showIfBreak.innerHTML = "Couuuuuurs !!! Vooooooole !!!";
+		} else {
+			showIfBreak.innerHTML = "T\'as cru que c\'était la pause ?!";
+		}
+	}
+
+
+
+
+</script>
+</html>
